@@ -1,6 +1,6 @@
 function HeaderLogo() {
   return (
-    <div className="text-white">
+    <div className="w-40">
       <img src="/logos/omazon.svg" alt="Omazon Logo" />
     </div>
   );
