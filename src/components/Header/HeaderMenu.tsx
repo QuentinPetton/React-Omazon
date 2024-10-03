@@ -1,10 +1,12 @@
 function HeaderMenu() {
   return (
     <div className="flex items-center gap-4">
-      <img src="/icons/user.svg" alt="User account icon" />
-      <div className="">
-        <span>0</span>
-        <img src="/icons/cart.svg" alt="Cart icon" />
+      <img className="h-7" src="/icons/user.svg" alt="User account icon" />
+      <div className="relative">
+        <span className="text-Brand_primary font-bold absolute -top-2 right-1  h-5 w-5 flex items-center justify-center">
+          0
+        </span>
+        <img className="h-7" src="/icons/cart.svg" alt="Cart icon" />
       </div>
     </div>
   );

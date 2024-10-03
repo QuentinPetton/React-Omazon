@@ -4,7 +4,7 @@ import HeaderMenu from './HeaderMenu';
 
 function Header() {
   return (
-    <header className="bg-Main_medium text-Main_lower p-4">
+    <header className="bg-Main_high text-Main_Lowest p-4">
       <div className="flex justify-between items-center">
         <HeaderLogo />
         <HeaderMenu />
