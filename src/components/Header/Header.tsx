@@ -4,7 +4,7 @@ import HeaderMenu from './HeaderMenu';
 
 function Header() {
   return (
-    <header>
+    <header className="bg-Main_medium text-Main_lower">
       <HeaderLogo />
       <HeaderForm />
       <HeaderMenu />
