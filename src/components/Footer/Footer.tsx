@@ -29,12 +29,16 @@ function Footer() {
           />
         </div>
       </div>
-      <div className="bg-Main_highter text-Main_Lowest py-8">
+      <div className="bg-Main_highter text-Main_Lowest py-8 flex flex-col items-center gap-2 px-6 text-xs">
         <span>Conditions générales de vente</span>
-        <span>Vos informations personnelles</span>
-        <span>Cookies</span>
+        <div>
+          <span className="pr-4">Vos informations personnelles</span>
+          <span>Cookies</span>
+        </div>
         <span>Annonces basées sur vos centres d'intérêt</span>
-        <span>2024 Omazon, un clone simplifié de Amazon</span>
+        <span className="pt-6">
+          © 2024 Omazon, un clone simplifié de Amazon
+        </span>
       </div>
     </div>
   );
