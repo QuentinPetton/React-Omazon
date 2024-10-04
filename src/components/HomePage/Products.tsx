@@ -30,21 +30,21 @@ function Products() {
     }
     if (tag.id === 2) {
       return (
-        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_grey text-sm text-Main_Lowest">
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_grey text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           Nouveauté
         </span>
       );
     }
     if (tag.id === 3) {
       return (
-        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_primary text-sm text-Main_Lowest">
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_primary text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           N°1 des ventes
         </span>
       );
     }
     if (tag.id === 4) {
       return (
-        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Danger_medium text-sm text-Main_Lowest">
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Danger_medium text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           Vente flash
         </span>
       );
@@ -64,7 +64,7 @@ function Products() {
             {getTagTypeAndStyle(product.tag)}
 
             <img
-              className="w-1/2 object-cover mx-auto mt-6 "
+              className="w-1/2 object-cover mx-auto pt-6 "
               src={`../src/assets/products/${product.image}`}
               alt={product.title}
             />
