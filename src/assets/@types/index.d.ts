@@ -3,8 +3,8 @@ export interface Product {
   title: string;
   price: number;
   image: string;
-  category: Category[];
-  tag: Tag[];
+  category: Category;
+  tag: Tag;
 }
 
 export interface Category {

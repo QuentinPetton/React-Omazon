@@ -21,7 +21,6 @@ function Products() {
   return (
     <div>
       <h1 className="px-4 pt-10 font-bold text-3xl">Tous nos produits</h1>
-      //todo boucler sur le tableau de products .map
       {products.map((product) => (
         <article key={product.id} className="m-4 border-Main_low ">
           <div className="relative pb-6">
@@ -30,20 +29,21 @@ function Products() {
             </span>
             <img
               className="w-1/2 object-cover mx-auto mt-6 "
-              src="../src/assets/products/frisbee.webp"
-              alt="Frisbee"
+              src={`../src/assets/products/${product.image}`}
+              alt={product.title}
             />
             <div className="absolute inset-0 bg-[rgba(0,0,0,0.04)] " />
           </div>
 
           <div className="border-r border-b border-l border-Main_low p-4">
-            <p>
-              Trixie Frisbee Caoutchouc Naturel 22cm pour chien, Coloris
-              aléatoire
-            </p>
+            <p>{product.title}</p>
             <div className="flex items-center gap-1 mt-10 mb-4">
-              <span className="font-bold text-3xl">8</span>
-              <sup className="font-normal text-xs  ">99 €</sup>
+              <span className="font-bold text-3xl">
+                {Math.trunc(product.price)}
+              </span>
+              <sup className="font-normal text-xs  ">
+                {product.price.toString().split('.')[1]} €
+              </sup>
             </div>
 
             <button
