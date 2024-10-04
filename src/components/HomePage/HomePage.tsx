@@ -5,6 +5,7 @@ function HomePage() {
   return (
     <main>
       {/* <Categories /> */}
+
       <Product />
     </main>
   );

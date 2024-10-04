@@ -54,8 +54,10 @@ function Products() {
   };
 
   return (
-    <div>
-      <h1 className="px-4 pt-10 font-bold text-3xl">Tous nos produits</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      <h1 className="px-4 pt-10 font-bold text-3xl md:col-span-2 lg:col-span-4">
+        Tous nos produits
+      </h1>
       {products.map((product) => (
         <article key={product.id} className="m-4 border-Main_low ">
           <div className="relative pb-6">
