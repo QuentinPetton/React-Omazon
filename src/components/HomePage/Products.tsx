@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { Product } from '../../assets/@types';
+import type { Product, Tag } from '../../assets/@types';
 
 function Products() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -18,15 +18,49 @@ function Products() {
       .catch((error) => console.error(error));
   }, []);
 
+  //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
+
+  const getTagTypeAndStyle = (tag: Tag) => {
+    if (tag.id === 1) {
+      return (
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Main_high text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
+          Choix <span className="text-Brand_primary">d'Omazon</span>
+        </span>
+      );
+    }
+    if (tag.id === 2) {
+      return (
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_grey text-sm text-Main_Lowest">
+          Nouveauté
+        </span>
+      );
+    }
+    if (tag.id === 3) {
+      return (
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_primary text-sm text-Main_Lowest">
+          N°1 des ventes
+        </span>
+      );
+    }
+    if (tag.id === 4) {
+      return (
+        <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Danger_medium text-sm text-Main_Lowest">
+          Vente flash
+        </span>
+      );
+    }
+
+    return null;
+  };
+
   return (
     <div>
       <h1 className="px-4 pt-10 font-bold text-3xl">Tous nos produits</h1>
       {products.map((product) => (
         <article key={product.id} className="m-4 border-Main_low ">
           <div className="relative pb-6">
-            <span className=" rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1  bg-Brand_primary text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
-              N°1 des ventes
-            </span>
+            {getTagTypeAndStyle(product.tag)}
+
             <img
               className="w-1/2 object-cover mx-auto mt-6 "
               src={`../src/assets/products/${product.image}`}
@@ -47,7 +81,7 @@ function Products() {
             </div>
 
             <button
-              className="p-2 px-4 bg-Brand_primary rounded-3xl text-xs
+              className="p-2 px-4 bg-Button_primary_default_bg rounded-3xl text-xs border-2 border-Button_primary_default_border
         "
               type="button"
             >
