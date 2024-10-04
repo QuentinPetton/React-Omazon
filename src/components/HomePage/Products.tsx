@@ -54,13 +54,16 @@ function Products() {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 m-4">
       <h1 className="px-4 pt-10 font-bold text-3xl md:col-span-2 lg:col-span-4">
         Tous nos produits
       </h1>
       {products.map((product) => (
-        <article key={product.id} className="m-4 border-Main_low ">
-          <div className="relative pb-6">
+        <article
+          key={product.id}
+          className=" border-Main_low h-full flex flex-col"
+        >
+          <div className="relative pb-6 flex-grow">
             {getTagTypeAndStyle(product.tag)}
 
             <img
@@ -72,7 +75,7 @@ function Products() {
           </div>
 
           <div className="border-r border-b border-l border-Main_low p-4">
-            <p>{product.title}</p>
+            <p className="line-clamp-3">{product.title}</p>
             <div className="flex items-center gap-1 mt-10 mb-4">
               <span className="font-bold text-3xl">
                 {Math.trunc(product.price)}
