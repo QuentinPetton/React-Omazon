@@ -4,7 +4,7 @@ import Product from './Products';
 function HomePage() {
   return (
     <main>
-      <Categories />
+      {/* <Categories /> */}
       <Product />
     </main>
   );
