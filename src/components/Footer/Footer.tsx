@@ -19,7 +19,7 @@ function Footer() {
   }, []);
   return (
     <div>
-      <div className="flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">
+      <div className=" hidden md:flex lg:flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">
         <div className="w-32">
           <img src="/logos/omazon.svg" alt="Omazon Logo" />
         </div>
