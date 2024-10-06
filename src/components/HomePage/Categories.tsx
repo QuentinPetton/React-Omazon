@@ -19,11 +19,13 @@ function Categories() {
   }, []);
 
   return (
-    <div>
-      <h2 className="px-4 pt-10 font-bold text-3xl">Catégories à l'honneur</h2>
+    <div className="hidden lg:grid lg:grid-cols-6 md:grid md:grid-cols-3 gap-6 m-4 ">
+      <h2 className="px-4 pt-10 font-bold text-3xl lg:col-span-6 md: col-span-3">
+        Catégories à l'honneur
+      </h2>
 
       {categories.map((categorie) => (
-        <article key={categorie.id} className="">
+        <article key={categorie.id} className="my-4">
           <div className="relative w-40 h-40 text-center">
             <img
               src={`../src/assets/categories/${categorie.image}`}
