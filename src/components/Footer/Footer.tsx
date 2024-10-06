@@ -1,6 +1,63 @@
+import { useEffect, useState } from 'react';
+import type { Category } from '../../assets/@types';
+
 function Footer() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch('/data/categories.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //Si on a la réponse, on l'affiche en console.log
+
+        setCategories(data);
+      })
+      //Si erreur on console l'erreur
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <div>
+      <div className="flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">
+        <div className="w-32">
+          <img src="/logos/omazon.svg" alt="Omazon Logo" />
+        </div>
+        <form className="flex justify-center w-full  " action="">
+          <select
+            name="Toutes nos catégories"
+            id="categories-select"
+            className="hidden rounded-l-md p-2 text-Brand_grey border-r border-Brand_grey md:block  lg:block"
+          >
+            <option value="">Toutes nos catégories</option>
+            {categories.map((categorie) => (
+              <option key={categorie.id} value={categorie.title}>
+                {categorie.title}
+              </option>
+            ))}
+          </select>
+          <input
+            className="rounded-l-md p-2 w-full text-Brand_grey md:rounded-l-none lg:rounded-l-none"
+            type="text"
+            placeholder="Rechercher Omazon"
+          />
+          <button
+            type="button"
+            className="p-2 px-4 bg-Brand_primary rounded-r-md"
+          >
+            <img src="/icons/search.svg" alt="Search icon" />
+          </button>
+        </form>
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <span className="text-Brand_primary font-bold absolute -top-2 right-1  h-5 w-5 flex items-center justify-center">
+              0
+            </span>
+            <img className="h-7" src="/icons/cart.svg" alt="Cart icon" />
+          </div>
+        </div>
+      </div>
+
       <button
         type="button"
         className="bg-Main_medium text-Main_Lowest w-full py-2"
