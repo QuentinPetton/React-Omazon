@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './styles/reset.css';
 import './styles/global.css';
 

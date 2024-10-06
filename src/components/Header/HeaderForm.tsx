@@ -1,4 +1,23 @@
+import { useEffect, useState } from 'react';
+import type { Category } from '../../assets/@types';
+
 function HeaderForm() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetch('/data/categories.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //Si on a la réponse, on l'affiche en console.log
+
+        setCategories(data);
+      })
+      //Si erreur on console l'erreur
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
     <div>
       <form className="flex justify-center w-full" action="">
