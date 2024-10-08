@@ -1,12 +1,17 @@
-import type { Product, Tag } from '../../assets/@types';
+import type { Product, Tag, Category } from '../../assets/@types';
 import ProductAddForm from './ProductAddForm';
 
 type ProductsListProps = {
-  items: Product[];
+  products: Product[];
+  categories: Category[];
   addProductToCart: (product: Product) => void;
 };
 
-function Products({ items, addProductToCart }: ProductsListProps) {
+function Products({
+  products,
+  addProductToCart,
+  categories,
+}: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
   const getTagTypeAndStyle = (tag: Tag) => {
@@ -47,7 +52,7 @@ function Products({ items, addProductToCart }: ProductsListProps) {
       <h1 className="px-4 pt-10 font-bold text-3xl md:col-span-2 lg:col-span-4">
         Tous nos produits
       </h1>
-      {items.map((product) => (
+      {products.map((product) => (
         <article
           key={product.id}
           className=" border-Main_low h-full flex flex-col"
@@ -85,7 +90,7 @@ function Products({ items, addProductToCart }: ProductsListProps) {
           </div>
         </article>
       ))}
-      <ProductAddForm />
+      <ProductAddForm categories={categories} />
     </div>
   );
 }

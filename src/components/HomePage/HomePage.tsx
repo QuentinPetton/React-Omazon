@@ -11,8 +11,12 @@ type HomePageProps = {
 function HomePage({ categories, products, addProductToCart }: HomePageProps) {
   return (
     <main>
-      <Categories items={categories} />
-      <Products items={products} addProductToCart={addProductToCart} />
+      <Categories categories={categories} />
+      <Products
+        products={products}
+        addProductToCart={addProductToCart}
+        categories={categories}
+      />
     </main>
   );
 }
