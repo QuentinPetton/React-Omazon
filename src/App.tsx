@@ -57,7 +57,7 @@ function App() {
         products={products}
         addProductToCart={addProductToCart}
       />
-      <Footer />
+      <Footer categories={categories} products={products} />
     </div>
   );
 }

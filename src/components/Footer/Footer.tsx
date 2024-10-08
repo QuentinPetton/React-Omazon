@@ -1,22 +1,11 @@
-import { useEffect, useState } from 'react';
-import type { Category } from '../../assets/@types';
+import type { Category, Product } from '../../assets/@types';
 
-function Footer() {
-  const [categories, setCategories] = useState<Category[]>([]);
+type FooterProps = {
+  categories: Category[];
+  products: Product[];
+};
 
-  useEffect(() => {
-    fetch('/data/categories.json')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //Si on a la réponse, on l'affiche en console.log
-
-        setCategories(data);
-      })
-      //Si erreur on console l'erreur
-      .catch((error) => console.error(error));
-  }, []);
+function Footer({ categories, products }: FooterProps) {
   return (
     <div>
       <div className=" hidden md:flex lg:flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">
