@@ -1,23 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { Category } from '../../assets/@types';
 
-function HeaderForm() {
-  const [categories, setCategories] = useState<Category[]>([]);
+type CategoriesListProps = {
+  items: Category[];
+};
 
-  useEffect(() => {
-    fetch('/data/categories.json')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //Si on a la réponse, on l'affiche en console.log
-
-        setCategories(data);
-      })
-      //Si erreur on console l'erreur
-      .catch((error) => console.error(error));
-  }, []);
-
+function HeaderForm({ items }: CategoriesListProps) {
   return (
     <div>
       <form className="flex justify-center w-full" action="">
@@ -27,7 +15,7 @@ function HeaderForm() {
           className="hidden rounded-l-md p-2 text-Brand_grey border-r border-Brand_grey md:block  lg:block"
         >
           <option value="">Toutes nos catégories</option>
-          {categories.map((categorie) => (
+          {items.map((categorie) => (
             <option key={categorie.id} value={categorie.title}>
               {categorie.title}
             </option>

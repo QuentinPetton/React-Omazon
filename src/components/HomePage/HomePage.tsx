@@ -1,10 +1,15 @@
 import Categories from './Categories';
 import Product from './Products';
+import type { Category } from '../../assets/@types';
 
-function HomePage() {
+type CategoriesListProps = {
+  items: Category[];
+};
+
+function HomePage({ items }: CategoriesListProps) {
   return (
     <main>
-      <Categories />
+      <Categories items={items} />
       <Product />
     </main>
   );
