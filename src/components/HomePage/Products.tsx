@@ -1,4 +1,5 @@
 import type { Product, Tag } from '../../assets/@types';
+import ProductAddForm from './ProductAddForm';
 
 type ProductsListProps = {
   items: Product[];
@@ -84,6 +85,7 @@ function Products({ items, addProductToCart }: ProductsListProps) {
           </div>
         </article>
       ))}
+      <ProductAddForm />
     </div>
   );
 }
