@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import HomePage from './components/HomePage/HomePage';
 import Footer from './components/Footer/Footer';
 import { useEffect, useState } from 'react';
-import type { Category } from './assets/@types';
+import type { Category, Product } from './assets/@types';
 
 function App() {
   const [categories, setCategories] = useState<Category[]>([]);
@@ -25,14 +25,26 @@ function App() {
   }, []);
 
   //Gérer affichage du nmbre article dans panier
-  const [cartProducts, setCartProducts] = useState([]);
-  //Faire un onCLick sur "ajouter au panier avec push product.id"
-  //Affichage dynamique dans header
+  const [products, setProducts] = useState<Product[]>([]);
+  //On récupère les données de data/products
+  useEffect(() => {
+    fetch('/data/products.json')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        //Si on a la réponse, on l'affiche en console.log
+        console.log(data);
+        setProducts(data);
+      })
+      //Si erreur on console l'erreur
+      .catch((error) => console.error(error));
+  }, []);
 
   return (
     <div>
       <Header items={categories} />
-      <HomePage items={categories} />
+      <HomePage categories={categories} products={products} />
       <Footer />
     </div>
   );

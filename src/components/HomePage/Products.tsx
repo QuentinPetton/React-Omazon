@@ -1,23 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { Product, Tag } from '../../assets/@types';
 
-function Products() {
-  const [products, setProducts] = useState<Product[]>([]);
-  //On récupère les données de data/products
-  useEffect(() => {
-    fetch('/data/products.json')
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //Si on a la réponse, on l'affiche en console.log
-        console.log(data);
-        setProducts(data);
-      })
-      //Si erreur on console l'erreur
-      .catch((error) => console.error(error));
-  }, []);
+type ProductsListProps = {
+  items: Product[];
+};
 
+function Products({ items }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
   const getTagTypeAndStyle = (tag: Tag) => {
@@ -58,7 +46,7 @@ function Products() {
       <h1 className="px-4 pt-10 font-bold text-3xl md:col-span-2 lg:col-span-4">
         Tous nos produits
       </h1>
-      {products.map((product) => (
+      {items.map((product) => (
         <article
           key={product.id}
           className=" border-Main_low h-full flex flex-col"

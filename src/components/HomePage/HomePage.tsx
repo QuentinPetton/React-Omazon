@@ -1,16 +1,17 @@
 import Categories from './Categories';
-import Product from './Products';
-import type { Category } from '../../assets/@types';
+import Products from './Products';
+import type { Category, Product } from '../../assets/@types';
 
-type CategoriesListProps = {
-  items: Category[];
+type HomePageProps = {
+  categories: Category[];
+  products: Product[];
 };
 
-function HomePage({ items }: CategoriesListProps) {
+function HomePage({ categories, products }: HomePageProps) {
   return (
     <main>
-      <Categories items={items} />
-      <Product />
+      <Categories items={categories} />
+      <Products items={products} />
     </main>
   );
 }

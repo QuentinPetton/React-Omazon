@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import type { Category } from '../../assets/@types';
 
 type CategoriesListProps = {
