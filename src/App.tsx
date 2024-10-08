@@ -41,10 +41,22 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
+  //Gestion du nmbre article dans panier
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
+  function addProductToCart(product: Product) {
+    console.log('carte ok');
+    setCartProducts([...cartProducts, product]);
+  }
+
   return (
     <div>
-      <Header items={categories} />
-      <HomePage categories={categories} products={products} />
+      <Header items={categories} cartProducts={cartProducts} />
+      <HomePage
+        categories={categories}
+        products={products}
+        addProductToCart={addProductToCart}
+      />
       <Footer />
     </div>
   );

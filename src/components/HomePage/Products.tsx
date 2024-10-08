@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
 import type { Product, Tag } from '../../assets/@types';
 
 type ProductsListProps = {
   items: Product[];
+  addProductToCart: (product: Product) => void;
 };
 
-function Products({ items }: ProductsListProps) {
+function Products({ items, addProductToCart }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
   const getTagTypeAndStyle = (tag: Tag) => {
@@ -74,6 +74,7 @@ function Products({ items }: ProductsListProps) {
             </div>
 
             <button
+              onClick={() => addProductToCart(product)}
               className="p-2 px-4 bg-Button_primary_default_bg rounded-3xl text-xs border-2 border-Button_primary_default_border
         "
               type="button"
