@@ -1,11 +1,12 @@
 import type { Product, Tag, Category } from '../../assets/@types';
 
 type ProductsAddFormProps = {
-  products: Product[];
+  // products: Product[];
   categories: Category[];
+  tags: Tag[];
 };
 
-function ProductAddForm({ products, categories }: ProductsAddFormProps) {
+function ProductAddForm({ categories, tags }: ProductsAddFormProps) {
   return (
     <div>
       <form action="">
@@ -28,6 +29,15 @@ function ProductAddForm({ products, categories }: ProductsAddFormProps) {
           {categories.map((categorie) => (
             <option key={categorie.id} value={categorie.title}>
               {categorie.title}
+            </option>
+          ))}
+        </select>
+
+        <select name="Tag" id="">
+          <option value="">Choisissez un tag</option>
+          {tags.map((tag) => (
+            <option key={tag.id} value={tag.text}>
+              {tag.text}
             </option>
           ))}
         </select>

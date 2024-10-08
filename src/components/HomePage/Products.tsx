@@ -4,6 +4,7 @@ import ProductAddForm from './ProductAddForm';
 type ProductsListProps = {
   products: Product[];
   categories: Category[];
+  tags: Tag[];
   addProductToCart: (product: Product) => void;
 };
 
@@ -11,6 +12,7 @@ function Products({
   products,
   addProductToCart,
   categories,
+  tags,
 }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
@@ -90,7 +92,7 @@ function Products({
           </div>
         </article>
       ))}
-      <ProductAddForm categories={categories} />
+      <ProductAddForm categories={categories} tags={tags} />
     </div>
   );
 }
