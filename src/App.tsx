@@ -63,8 +63,17 @@ function App() {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
   function addProductToCart(product: Product) {
+    //todo vérifier si produit pas déjà dans panier
     console.log('carte ok');
     setCartProducts([...cartProducts, product]);
+  }
+  //Ajout d'un nouveau produit via form
+  function addRental(addproduct: Product) {
+    //todo vérifier que le produit n'est pas déjà présent
+
+    console.log('nouveau produit');
+    //On ajoute le nouveau produit dans ma liste
+    setProducts([...products, addproduct]);
   }
 
   function displayModalAddForm() {
@@ -80,6 +89,7 @@ function App() {
         products={products}
         addProductToCart={addProductToCart}
         displayModal={displayModal}
+        addRental={addRental}
       />
       <Footer
         categories={categories}

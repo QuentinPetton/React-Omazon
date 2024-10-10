@@ -20,6 +20,7 @@ export default {
         Button_primary_active_bg: "#ff9900",
         Button_primary_active_border: "#007185",
         Danger_medium: "#cc0c39",
+        Transparenct_Overlay: "#00000099",
       },
       fill: {
         white: "#ffffff",

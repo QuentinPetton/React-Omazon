@@ -7,6 +7,7 @@ type ProductsListProps = {
   tags: Tag[];
   displayModal: boolean;
   addProductToCart: (product: Product) => void;
+  addRental: (addproduct: Product) => void;
 };
 
 function Products({
@@ -15,6 +16,7 @@ function Products({
   categories,
   tags,
   displayModal,
+  addRental,
 }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
@@ -95,9 +97,11 @@ function Products({
         </article>
       ))}
       <ProductAddForm
+        products={products}
         categories={categories}
         tags={tags}
         displayModal={displayModal}
+        addRental={addRental}
       />
     </div>
   );

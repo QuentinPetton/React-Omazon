@@ -1,21 +1,41 @@
-import type { Tag, Category } from '../../assets/@types';
+import type { Tag, Category, Product } from '../../assets/@types';
 
 type ProductsAddFormProps = {
   categories: Category[];
   tags: Tag[];
   displayModal: boolean;
+  addRental: (addproduct: Product) => void;
 };
 
 function ProductAddForm({
   categories,
   tags,
   displayModal,
+  addRental,
 }: ProductsAddFormProps) {
+  function handleSubmitAddProduct(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+    console.log(data);
+    console.log(data.Tag);
+    console.log(data.titre);
+
+    const newProduct = {
+      title: data.titre,
+      price: data.price,
+      image: data.url,
+      category: data.categorie,
+      tag: data.tag,
+    };
+    console.log(newProduct);
+    addRental(newProduct);
+  }
+
   return (
     <div>
       {displayModal && (
-        <form action="">
-          <h3>Ajouter un produit</h3>
+        <form onSubmit={handleSubmitAddProduct} action="">
+          <h3 className="bg-Main_low p-3">Ajouter un produit</h3>
           <label htmlFor="titre">Titre</label>
           <input className="bg-Main_medium" type="text" name="titre" />
 
@@ -29,7 +49,7 @@ function ProductAddForm({
             type="text"
             name="price"
           />
-          <select name="Catégorie" id="">
+          <select name="categorie" id="">
             <option value="">Choisissez une catégorie</option>
             {categories.map((categorie) => (
               <option key={categorie.id} value={categorie.title}>
@@ -38,7 +58,7 @@ function ProductAddForm({
             ))}
           </select>
 
-          <select name="Tag" id="">
+          <select name="tag" id="">
             <option value="">Choisissez un tag</option>
             {tags.map((tag) => (
               <option key={tag.id} value={tag.text}>
@@ -46,6 +66,7 @@ function ProductAddForm({
               </option>
             ))}
           </select>
+          <button type="submit">Ajouter</button>
         </form>
       )}
     </div>
