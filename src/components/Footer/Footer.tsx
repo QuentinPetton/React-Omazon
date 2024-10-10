@@ -3,9 +3,10 @@ import type { Category, Product } from '../../assets/@types';
 type FooterProps = {
   categories: Category[];
   products: Product[];
+  displayModalAddForm: () => void;
 };
 
-function Footer({ categories, products }: FooterProps) {
+function Footer({ categories, products, displayModalAddForm }: FooterProps) {
   return (
     <div>
       <div className=" hidden md:flex lg:flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">
@@ -63,6 +64,7 @@ function Footer({ categories, products }: FooterProps) {
         </p>
         <button
           type="button"
+          onClick={displayModalAddForm}
           className="p-2 bg-Button_primary_default_bg text-black rounded-lg my-6 border-Button_primary_default_border border-2"
         >
           Devenez vendeur sur Omazon

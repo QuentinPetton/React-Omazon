@@ -7,6 +7,7 @@ type HomePageProps = {
   products: Product[];
   tags: Tag[];
   addProductToCart: (product: Product) => void;
+  displayModal: boolean;
 };
 
 function HomePage({
@@ -14,6 +15,7 @@ function HomePage({
   products,
   tags,
   addProductToCart,
+  displayModal,
 }: HomePageProps) {
   return (
     <main>
@@ -23,6 +25,7 @@ function HomePage({
         tags={tags}
         addProductToCart={addProductToCart}
         categories={categories}
+        displayModal={displayModal}
       />
     </main>
   );

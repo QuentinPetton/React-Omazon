@@ -13,6 +13,9 @@ function App() {
   const [products, setProducts] = useState<Product[]>([]);
   const [tags, setTags] = useState<Tag[]>([]);
 
+  //Gérer affichage modal
+  const [displayModal, setDisplayModal] = useState(false);
+
   useEffect(() => {
     fetch('/data/tags.json')
       .then((response) => {
@@ -64,6 +67,10 @@ function App() {
     setCartProducts([...cartProducts, product]);
   }
 
+  function displayModalAddForm() {
+    setDisplayModal(true);
+  }
+
   return (
     <div>
       <Header items={categories} cartProducts={cartProducts} />
@@ -72,8 +79,13 @@ function App() {
         tags={tags}
         products={products}
         addProductToCart={addProductToCart}
+        displayModal={displayModal}
       />
-      <Footer categories={categories} products={products} />
+      <Footer
+        categories={categories}
+        products={products}
+        displayModalAddForm={displayModalAddForm}
+      />
     </div>
   );
 }
