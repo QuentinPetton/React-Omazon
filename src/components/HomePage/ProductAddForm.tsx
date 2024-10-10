@@ -1,10 +1,12 @@
 import type { Tag, Category, Product } from '../../assets/@types';
+import Products from './Products';
 
 type ProductsAddFormProps = {
+  products: Product[];
   categories: Category[];
   tags: Tag[];
   displayModal: boolean;
-  addRental: (addproduct: Product) => void;
+  addRental: (newproduct: Product) => void;
 };
 
 function ProductAddForm({
@@ -21,11 +23,12 @@ function ProductAddForm({
     console.log(data.titre);
 
     const newProduct = {
-      title: data.titre,
-      price: data.price,
-      image: data.url,
-      category: data.categorie,
-      tag: data.tag,
+      id: Products.length + 1,
+      title: `${data.titre}`,
+      price: Number(`${data.price}`),
+      image: `${data.url}`,
+      category: `${data.categorie}`,
+      tag: `${data.tag}`,
     };
     console.log(newProduct);
     addRental(newProduct);

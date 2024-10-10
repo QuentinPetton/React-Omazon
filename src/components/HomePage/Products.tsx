@@ -7,7 +7,7 @@ type ProductsListProps = {
   tags: Tag[];
   displayModal: boolean;
   addProductToCart: (product: Product) => void;
-  addRental: (addproduct: Product) => void;
+  addRental: (newproduct: Product) => void;
 };
 
 function Products({

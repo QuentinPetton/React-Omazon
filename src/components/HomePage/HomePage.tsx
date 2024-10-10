@@ -8,7 +8,7 @@ type HomePageProps = {
   tags: Tag[];
   addProductToCart: (product: Product) => void;
   displayModal: boolean;
-  addRental: (addproduct: Product) => void;
+  addRental: (newproduct: Product) => void;
 };
 
 function HomePage({

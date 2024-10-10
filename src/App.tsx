@@ -68,12 +68,12 @@ function App() {
     setCartProducts([...cartProducts, product]);
   }
   //Ajout d'un nouveau produit via form
-  function addRental(addproduct: Product) {
+  function addRental(newproduct: Product) {
     //todo vérifier que le produit n'est pas déjà présent
 
     console.log('nouveau produit');
     //On ajoute le nouveau produit dans ma liste
-    setProducts([...products, addproduct]);
+    setProducts([...products, newproduct]);
   }
 
   function displayModalAddForm() {
