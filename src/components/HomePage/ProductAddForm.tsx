@@ -13,24 +13,38 @@ function ProductAddForm({
   categories,
   tags,
   displayModal,
+  products,
   addRental,
 }: ProductsAddFormProps) {
   function handleSubmitAddProduct(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.currentTarget));
-    console.log(data);
-    console.log(data.Tag);
-    console.log(data.titre);
 
+    const categorySelected = categories.find(
+      (categorie) => categorie.title === data.categorie,
+    );
+
+    if (!categorySelected) {
+      //todo gérer un message si pas catégorie
+      return;
+    }
+    console.log(categorySelected);
+    //On vérifie le tag si renseigné, sinon tag = 0
+    const tagSelected = tags.find((tag) => tag.text === data.tag) || { id: 0 };
+    if (!tagSelected) {
+      return;
+    }
+    console.log(Products);
     const newProduct = {
-      id: Products.length + 1,
+      id: products.length + 1,
       title: `${data.titre}`,
       price: Number(`${data.price}`),
       image: `${data.url}`,
-      category: `${data.categorie}`,
-      tag: `${data.tag}`,
+      category: categorySelected as Category,
+      tag: tagSelected as Tag,
     };
     console.log(newProduct);
+
     addRental(newProduct);
   }
 
@@ -40,10 +54,10 @@ function ProductAddForm({
         <form onSubmit={handleSubmitAddProduct} action="">
           <h3 className="bg-Main_low p-3">Ajouter un produit</h3>
           <label htmlFor="titre">Titre</label>
-          <input className="bg-Main_medium" type="text" name="titre" />
+          <input className="bg-Main_medium" type="text" name="titre" required />
 
           <label htmlFor="url">URL de la photo</label>
-          <input className="bg-Main_medium" type="text" name="url" />
+          <input className="bg-Main_medium" type="text" name="url" required />
 
           <label htmlFor="price">Prix (en euros)</label>
           <input
@@ -52,7 +66,7 @@ function ProductAddForm({
             type="text"
             name="price"
           />
-          <select name="categorie" id="">
+          <select name="categorie" id="" required>
             <option value="">Choisissez une catégorie</option>
             {categories.map((categorie) => (
               <option key={categorie.id} value={categorie.title}>
