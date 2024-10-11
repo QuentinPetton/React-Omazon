@@ -49,41 +49,71 @@ function ProductAddForm({
   }
 
   return (
-    <div>
+    <div className="col-span-4">
       {displayModal && (
-        <form onSubmit={handleSubmitAddProduct} action="">
-          <h3 className="bg-Main_low p-3">Ajouter un produit</h3>
-          <label htmlFor="titre">Titre</label>
-          <input className="bg-Main_medium" type="text" name="titre" required />
+        <form
+          className="grid grid-cols-2"
+          onSubmit={handleSubmitAddProduct}
+          action=""
+        >
+          <div className="bg-Main_low p-3 col-span-2 grid grid-cols-2">
+            <h3 className="">Ajouter un produit</h3>
+            <div className="justify-self-end">
+              <img src="../../../icons/icons8-close.svg" alt="close button" />
+            </div>
+          </div>
+          <div className="col-span-2 flex flex-col">
+            <label htmlFor="titre">Titre</label>
+            <input
+              className="bg-Main_medium"
+              type="text"
+              name="titre"
+              required
+            />
+          </div>
 
-          <label htmlFor="url">URL de la photo</label>
-          <input className="bg-Main_medium" type="text" name="url" required />
+          <div className="col-span-2 flex flex-col">
+            <label htmlFor="url">URL de la photo</label>
+            <input className="bg-Main_medium" type="text" name="url" required />
+          </div>
 
-          <label htmlFor="price">Prix (en euros)</label>
-          <input
-            placeholder="90.99"
-            className="bg-Main_medium"
-            type="text"
-            name="price"
-          />
-          <select name="categorie" id="" required>
-            <option value="">Choisissez une catégorie</option>
-            {categories.map((categorie) => (
-              <option key={categorie.id} value={categorie.title}>
-                {categorie.title}
-              </option>
-            ))}
-          </select>
+          <div className="col-span-2 flex flex-col">
+            <label htmlFor="price">Prix (en euros)</label>
+            <input
+              placeholder="90.99"
+              className="bg-Main_medium"
+              type="text"
+              name="price"
+            />
+          </div>
 
-          <select name="tag" id="">
-            <option value="">Choisissez un tag</option>
-            {tags.map((tag) => (
-              <option key={tag.id} value={tag.text}>
-                {tag.text}
-              </option>
-            ))}
-          </select>
-          <button type="submit">Ajouter</button>
+          <div className="flex flex-col">
+            <label htmlFor="categorie">Catégorie</label>
+            <select name="categorie" id="" required>
+              <option value="">Choisissez une catégorie</option>
+              {categories.map((categorie) => (
+                <option key={categorie.id} value={categorie.title}>
+                  {categorie.title}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="flex flex-col">
+            <label htmlFor="tag">Tag</label>
+            <select name="tag" id="">
+              <option value="">Choisissez un tag</option>
+              {tags.map((tag) => (
+                <option key={tag.id} value={tag.text}>
+                  {tag.text}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <button className="bg-Brand_primary col-span-2" type="submit">
+            Ajouter
+          </button>
         </form>
       )}
     </div>
