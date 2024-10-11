@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { Category } from '../../assets/@types';
 
 type CategoriesListProps = {
@@ -5,6 +6,9 @@ type CategoriesListProps = {
 };
 
 function HeaderForm({ items }: CategoriesListProps) {
+  const [searchTerm, setSearchTerm] = useState('');
+  console.log(searchTerm);
+
   return (
     <div>
       <form className="flex justify-center w-full" action="">
@@ -21,6 +25,8 @@ function HeaderForm({ items }: CategoriesListProps) {
           ))}
         </select>
         <input
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
           className="rounded-l-md p-2 w-full text-Brand_grey md:rounded-l-none lg:rounded-l-none"
           type="text"
           placeholder="Rechercher Omazon"
