@@ -16,10 +16,10 @@ function HeaderForm({ items, products }: CategoriesListProps) {
   const [searchCategory, setsearchCategory] = useState('');
   // console.log(searchCategory);
   //todo lier les deux finds pour afficher contenu
-  const finProductByCategories = findProductByTitle.filter((product) =>
+  const finProductByCategoriesAndTitle = findProductByTitle.filter((product) =>
     product.category.title.toLowerCase().includes(searchCategory.toLowerCase()),
   );
-  console.log(finProductByCategories);
+  console.log(finProductByCategoriesAndTitle);
 
   return (
     <div>
@@ -38,13 +38,26 @@ function HeaderForm({ items, products }: CategoriesListProps) {
             </option>
           ))}
         </select>
-        <input
-          value={searchTerm}
-          onChange={(event) => setSearchTerm(event.target.value)}
-          className="rounded-l-md p-2 w-full text-Brand_grey md:rounded-l-none lg:rounded-l-none"
-          type="text"
-          placeholder="Rechercher Omazon"
-        />
+        <div className="relative w-full">
+          <input
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            className="rounded-l-md p-2 w-full text-Brand_grey md:rounded-l-none lg:rounded-l-none "
+            type="text"
+            placeholder="Rechercher Omazon"
+          />
+
+          {searchTerm.length > 0 &&
+            finProductByCategoriesAndTitle.length > 0 && (
+              <div className="absolute text-Main_highter bg-white w-full border rounded-md shadow-lg z-50 ">
+                {finProductByCategoriesAndTitle.map((product) => (
+                  <div key={product.id}>
+                    <p className="truncate">{product.title}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+        </div>
         <button
           type="button"
           className="p-2 px-4 bg-Brand_primary rounded-r-md"
