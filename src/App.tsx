@@ -16,6 +16,9 @@ function App() {
   //Gérer affichage modal
   const [displayModal, setDisplayModal] = useState(false);
 
+  //Gestion du nmbre article dans panier
+  const [cartProducts, setCartProducts] = useState<Product[]>([]);
+
   useEffect(() => {
     fetch('/data/tags.json')
       .then((response) => {
@@ -52,15 +55,12 @@ function App() {
       })
       .then((data) => {
         //Si on a la réponse, on l'affiche en console.log
-        console.log(data);
+
         setProducts(data);
       })
       //Si erreur on console l'erreur
       .catch((error) => console.error(error));
   }, []);
-
-  //Gestion du nmbre article dans panier
-  const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
   function addProductToCart(product: Product) {
     //todo vérifier si produit pas déjà dans panier
@@ -82,7 +82,11 @@ function App() {
 
   return (
     <div>
-      <Header items={categories} cartProducts={cartProducts} />
+      <Header
+        items={categories}
+        cartProducts={cartProducts}
+        products={products}
+      />
       <HomePage
         categories={categories}
         tags={tags}

@@ -6,9 +6,10 @@ import type { Category, Product } from '../../assets/@types';
 type HeaderProps = {
   items: Category[];
   cartProducts: Product[];
+  products: Product[];
 };
 
-function Header({ items, cartProducts }: HeaderProps) {
+function Header({ items, cartProducts, products }: HeaderProps) {
   return (
     <header className="bg-Main_high text-Main_Lowest p-4">
       <div className="flex justify-between items-center">
@@ -16,7 +17,7 @@ function Header({ items, cartProducts }: HeaderProps) {
         <HeaderMenu cartProducts={cartProducts} />
       </div>
       <div className="mt-4">
-        <HeaderForm items={items} />
+        <HeaderForm items={items} products={products} />
       </div>
     </header>
   );

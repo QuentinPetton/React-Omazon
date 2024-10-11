@@ -1,16 +1,22 @@
 import { useState } from 'react';
-import type { Category } from '../../assets/@types';
+import type { Category, Product } from '../../assets/@types';
 
 type CategoriesListProps = {
   items: Category[];
+  products: Product[];
 };
 
-function HeaderForm({ items }: CategoriesListProps) {
+function HeaderForm({ items, products }: CategoriesListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   console.log(searchTerm);
 
+  const findProduct = products.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+  console.log(findProduct);
+
   const [searchCategory, setsearchCategory] = useState('');
-  console.log(searchCategory);
+  // console.log(searchCategory);
 
   return (
     <div>
