@@ -8,21 +8,18 @@ type CategoriesListProps = {
 
 function HeaderForm({ items, products }: CategoriesListProps) {
   const [searchTerm, setSearchTerm] = useState('');
-  console.log(searchTerm);
 
   const findProductByTitle = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-  console.log(findProductByTitle);
 
   const [searchCategory, setsearchCategory] = useState('');
   // console.log(searchCategory);
-  const finProductByCategories = products.filter((product) =>
+  //todo lier les deux finds pour afficher contenu
+  const finProductByCategories = findProductByTitle.filter((product) =>
     product.category.title.toLowerCase().includes(searchCategory.toLowerCase()),
   );
   console.log(finProductByCategories);
-
-  //todo lier les deux finds pour afficher contenu
 
   return (
     <div>
