@@ -77,7 +77,7 @@ function App() {
   }
 
   function displayModalAddForm() {
-    setDisplayModal(true);
+    setDisplayModal(!displayModal);
   }
 
   return (
@@ -90,6 +90,7 @@ function App() {
         addProductToCart={addProductToCart}
         displayModal={displayModal}
         addRental={addRental}
+        displayModalAddForm={displayModalAddForm}
       />
       <Footer
         categories={categories}

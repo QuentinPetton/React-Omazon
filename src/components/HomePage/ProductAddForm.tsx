@@ -7,6 +7,7 @@ type ProductsAddFormProps = {
   tags: Tag[];
   displayModal: boolean;
   addRental: (newproduct: Product) => void;
+  displayModalAddForm: () => void;
 };
 
 function ProductAddForm({
@@ -15,6 +16,7 @@ function ProductAddForm({
   displayModal,
   products,
   addRental,
+  displayModalAddForm,
 }: ProductsAddFormProps) {
   function handleSubmitAddProduct(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -46,6 +48,7 @@ function ProductAddForm({
     console.log(newProduct);
 
     addRental(newProduct);
+    displayModalAddForm();
   }
 
   return (
@@ -65,7 +68,7 @@ function ProductAddForm({
               <div className="bg-Main_low p-5 col-span-2 grid grid-cols-2 rounded-t-md border-b border-Brand_grey">
                 <h3 className="font-bold">Ajouter un produit</h3>
                 <div className="justify-self-end">
-                  <button type="button">
+                  <button onClick={displayModalAddForm} type="button">
                     <img
                       className="w-6"
                       src="../../../icons/icons8-close.svg"

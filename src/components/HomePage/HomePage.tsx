@@ -9,6 +9,7 @@ type HomePageProps = {
   addProductToCart: (product: Product) => void;
   displayModal: boolean;
   addRental: (newproduct: Product) => void;
+  displayModalAddForm: () => void;
 };
 
 function HomePage({
@@ -18,6 +19,7 @@ function HomePage({
   addProductToCart,
   displayModal,
   addRental,
+  displayModalAddForm,
 }: HomePageProps) {
   return (
     <main>
@@ -29,6 +31,7 @@ function HomePage({
         categories={categories}
         displayModal={displayModal}
         addRental={addRental}
+        displayModalAddForm={displayModalAddForm}
       />
     </main>
   );
