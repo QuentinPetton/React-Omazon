@@ -49,10 +49,10 @@ function HeaderForm({ items, products }: CategoriesListProps) {
 
           {searchTerm.length > 0 &&
             finProductByCategoriesAndTitle.length > 0 && (
-              <div className="absolute text-Main_highter bg-white w-full border rounded-md shadow-lg z-50 ">
+              <div className="absolute text-Main_highter bg-white w-full border rounded-b-md shadow-lg z-5 ">
                 {finProductByCategoriesAndTitle.map((product) => (
                   <div key={product.id}>
-                    <p className="truncate">{product.title}</p>
+                    <p className="truncate px-2">{product.title}</p>
                   </div>
                 ))}
               </div>
