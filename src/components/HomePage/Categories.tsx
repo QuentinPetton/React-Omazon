@@ -12,16 +12,19 @@ function Categories({ categories }: CategoriesListProps) {
       </h2>
 
       {categories.map((categorie) => (
-        <article key={categorie.id} className="my-4">
-          <div className="relative w-40 h-40 text-center">
+        <article
+          key={categorie.id}
+          className="my-4 justify-self-center text-center mb-4"
+        >
+          <div className="relative w-40 h-40 flex justify-center items-center mb-4 ">
             <img
               src={`../src/assets/categories/${categorie.image}`}
               alt={categorie.title}
-              className="object-contain w-full h-full rounded-full "
+              className="object-contain w-3/4 h-3/4   "
             />
             <div className="absolute bg-[rgba(0,0,0,0.04)] inset-0 rounded-full" />
-            <span>{categorie.title}</span>
           </div>
+          <span>{categorie.title}</span>
         </article>
       ))}
     </div>

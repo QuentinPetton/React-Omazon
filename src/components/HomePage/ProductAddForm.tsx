@@ -78,7 +78,7 @@ function ProductAddForm({
                 </div>
               </div>
 
-              <div className="col-span-2 flex flex-col px-4">
+              <div className="col-span-2 flex flex-col px-6 pt-6">
                 <label htmlFor="titre">Titre</label>
                 <input
                   className="border border-Brand_grey rounded-sm px-2 py-1"
@@ -88,7 +88,7 @@ function ProductAddForm({
                 />
               </div>
 
-              <div className="col-span-2 flex flex-col px-4">
+              <div className="col-span-2 flex flex-col px-6">
                 <label htmlFor="url">URL de la photo</label>
                 <input
                   className="border border-Brand_grey rounded-sm px-2 py-1"
@@ -98,7 +98,7 @@ function ProductAddForm({
                 />
               </div>
 
-              <div className="col-span-2 flex flex-col px-4">
+              <div className="col-span-2 flex flex-col px-6">
                 <label htmlFor="price">Prix (en euros)</label>
                 <input
                   placeholder="90.99"
@@ -108,7 +108,7 @@ function ProductAddForm({
                 />
               </div>
 
-              <div className="flex flex-col gap-1 px-4">
+              <div className="flex flex-col gap-1 px-6">
                 <label htmlFor="categorie">Catégorie</label>
                 <select
                   className="border border-Brand_grey rounded-sm bg-Main_Lowest px-2 py-1"
@@ -125,7 +125,7 @@ function ProductAddForm({
                 </select>
               </div>
 
-              <div className="flex flex-col gap-1 px-4">
+              <div className="flex flex-col gap-1 px-6">
                 <label htmlFor="tag">Tag</label>
                 <select
                   className="border border-Brand_grey rounded-sm bg-Main_Lowest px-2 py-1"
