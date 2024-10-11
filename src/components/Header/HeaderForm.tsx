@@ -10,13 +10,19 @@ function HeaderForm({ items, products }: CategoriesListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   console.log(searchTerm);
 
-  const findProduct = products.filter((product) =>
+  const findProductByTitle = products.filter((product) =>
     product.title.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-  console.log(findProduct);
+  console.log(findProductByTitle);
 
   const [searchCategory, setsearchCategory] = useState('');
   // console.log(searchCategory);
+  const finProductByCategories = products.filter((product) =>
+    product.category.title.toLowerCase().includes(searchCategory.toLowerCase()),
+  );
+  console.log(finProductByCategories);
+
+  //todo lier les deux finds pour afficher contenu
 
   return (
     <div>
