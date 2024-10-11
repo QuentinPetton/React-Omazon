@@ -9,10 +9,15 @@ function HeaderForm({ items }: CategoriesListProps) {
   const [searchTerm, setSearchTerm] = useState('');
   console.log(searchTerm);
 
+  const [searchCategory, setsearchCategory] = useState('');
+  console.log(searchCategory);
+
   return (
     <div>
       <form className="flex justify-center w-full" action="">
         <select
+          value={searchCategory}
+          onChange={(event) => setsearchCategory(event.target.value)}
           name="Toutes nos catégories"
           id="categories-select"
           className="hidden rounded-l-md p-2 text-Brand_grey border-r border-Brand_grey md:block  lg:block"
