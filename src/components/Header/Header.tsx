@@ -20,6 +20,12 @@ function Header({ items, cartProducts, products }: HeaderProps) {
   const handleScroll = useCallback(() => {
     console.log('scroll!');
     console.log(document.documentElement.scrollTop);
+    //permet de gérer le scroll axe Y
+    console.log(window.scrollY);
+    //todo savoir si mon scroll est vers le haut ou le bas
+    //todo récupérer valeur scroll à instant T
+    //todo le comparer à nouvelle valeur scroll
+    //todo suivant résultat, ajouter ou non l'ombre portée
     setShadowScrollHeader(true);
   }, []);
 
