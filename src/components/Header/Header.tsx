@@ -12,32 +12,38 @@ type HeaderProps = {
 
 function Header({ items, cartProducts, products }: HeaderProps) {
   const [shadowScrollHeader, setShadowScrollHeader] = useState(false);
-
-  // useEffect(() => {
-  //   console.log("il faut mettre en place un écouteur d'événement scroll");
-  // }, []);
+  const [olderScrollPosition, setOlderScrollPosition] = useState(0);
 
   const handleScroll = useCallback(() => {
-    console.log('scroll!');
-    console.log(document.documentElement.scrollTop);
+    // console.log('scroll!');
+    // console.log(document.documentElement.scrollTop);
     //permet de gérer le scroll axe Y
     console.log(window.scrollY);
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY > olderScrollPosition) {
+      console.log('au dessus');
+      setShadowScrollHeader(true);
+    } else if (currentScrollY < olderScrollPosition) {
+      setShadowScrollHeader(false);
+    }
+
     //todo savoir si mon scroll est vers le haut ou le bas
     //todo récupérer valeur scroll à instant T
     //todo le comparer à nouvelle valeur scroll
     //todo suivant résultat, ajouter ou non l'ombre portée
-    setShadowScrollHeader(true);
-  }, []);
+
+    setOlderScrollPosition(currentScrollY);
+  }, [olderScrollPosition]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
-
-    // bonne pratique : enlever l'écouteur d'événement à la destruction du
-    // composant App, avec une fonction de nettoyage
   }, [handleScroll]);
 
   return (
-    <header className="bg-Main_high text-Main_Lowest p-4 ">
+    <header
+      className={`bg-Main_high text-Main_Lowest p-4 sticky top-0 ${shadowScrollHeader ? 'text-cyan-900 w-11' : ''}`}
+    >
       <div className="flex justify-between items-center">
         <HeaderLogo />
         <HeaderMenu cartProducts={cartProducts} />
