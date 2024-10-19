@@ -22,6 +22,7 @@ function Products({
 }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
+  //todo refactoriser cette condition
   const getTagTypeAndStyle = (tagId: number) => {
     if (tagId === 1) {
       return (

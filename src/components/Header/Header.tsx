@@ -22,12 +22,6 @@ function Header({ items, cartProducts, products }: HeaderProps) {
     } else if (currentScrollY < olderScrollPosition) {
       setShadowScrollHeader(false);
     }
-
-    //todo savoir si mon scroll est vers le haut ou le bas
-    //todo récupérer valeur scroll à instant T
-    //todo le comparer à nouvelle valeur scroll
-    //todo suivant résultat, ajouter ou non l'ombre portée
-
     setOlderScrollPosition(currentScrollY);
   }, [olderScrollPosition]);
 
