@@ -15,14 +15,9 @@ function Header({ items, cartProducts, products }: HeaderProps) {
   const [olderScrollPosition, setOlderScrollPosition] = useState(0);
 
   const handleScroll = useCallback(() => {
-    // console.log('scroll!');
-    // console.log(document.documentElement.scrollTop);
-    //permet de gérer le scroll axe Y
-    console.log(window.scrollY);
     const currentScrollY = window.scrollY;
 
     if (currentScrollY > olderScrollPosition) {
-      console.log('au dessus');
       setShadowScrollHeader(true);
     } else if (currentScrollY < olderScrollPosition) {
       setShadowScrollHeader(false);

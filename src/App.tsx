@@ -62,6 +62,11 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
+  const titleHead = 'coucou';
+  useEffect(() => {
+    document.title = titleHead;
+  }, []);
+
   function addProductToCart(product: Product) {
     //todo vérifier si produit pas déjà dans panier
     console.log('carte ok');
