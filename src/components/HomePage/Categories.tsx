@@ -18,7 +18,7 @@ function Categories({ categories }: CategoriesListProps) {
         >
           <div className="relative w-40 h-40 flex justify-center items-center mb-4 ">
             <img
-              src={`../src/assets/categories/${categorie.image}`}
+              src={categorie.image}
               alt={categorie.title}
               className="object-contain w-3/4 h-3/4   "
             />

@@ -70,7 +70,7 @@ function Products({
 
             <img
               className="w-1/2 object-cover mx-auto pt-6 "
-              src={`../src/assets/products/${product.image}`}
+              src={product.image}
               alt={product.title}
             />
             <div className="absolute inset-0 bg-[rgba(0,0,0,0.04)] " />

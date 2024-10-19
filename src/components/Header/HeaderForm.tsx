@@ -16,9 +16,9 @@ function HeaderForm({ items, products }: CategoriesListProps) {
   const [searchCategory, setsearchCategory] = useState('');
   // console.log(searchCategory);
   //todo lier les deux finds pour afficher contenu
-  const finProductByCategoriesAndTitle = findProductByTitle.filter((product) =>
-    product.categoryId.toLowerCase().includes(searchCategory.toLowerCase()),
-  );
+  // const finProductByCategoriesAndTitle = findProductByTitle.filter((product) =>
+  //   product.categoryId.toLowerCase().includes(searchCategory.toLowerCase()),
+  // );
 
   return (
     <div>
@@ -46,7 +46,7 @@ function HeaderForm({ items, products }: CategoriesListProps) {
             placeholder="Rechercher Omazon"
           />
 
-          {searchTerm.length > 0 &&
+          {/* {searchTerm.length > 0 &&
             finProductByCategoriesAndTitle.length > 0 && (
               <div className="absolute text-Main_highter bg-white w-full border rounded-b-md shadow-lg z-5 ">
                 {finProductByCategoriesAndTitle.map((product) => (
@@ -55,7 +55,7 @@ function HeaderForm({ items, products }: CategoriesListProps) {
                   </div>
                 ))}
               </div>
-            )}
+            )} */}
         </div>
         <button
           type="button"
