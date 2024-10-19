@@ -22,29 +22,29 @@ function Products({
 }: ProductsListProps) {
   //Gérer l'affichage du tag : affichage conditionnel et avec style suivant tag.id
 
-  const getTagTypeAndStyle = (tag: Tag) => {
-    if (tag.id === 1) {
+  const getTagTypeAndStyle = (tagId: number) => {
+    if (tagId === 1) {
       return (
         <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Main_high text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           Choix <span className="text-Brand_primary">d'Omazon</span>
         </span>
       );
     }
-    if (tag.id === 2) {
+    if (tagId === 2) {
       return (
         <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_grey text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           Nouveauté
         </span>
       );
     }
-    if (tag.id === 3) {
+    if (tagId === 3) {
       return (
         <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Brand_primary text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           N°1 des ventes
         </span>
       );
     }
-    if (tag.id === 4) {
+    if (tagId === 4) {
       return (
         <span className="rounded-tl-lg top-0 left-0 pl-4 pr-10 py-1 bg-Danger_medium text-sm text-Main_Lowest [clip-path:polygon(0%_0%,_100%_0%,_81%_100%,_0%_100%)]">
           Vente flash
@@ -66,7 +66,7 @@ function Products({
           className=" border-Main_low h-full flex flex-col"
         >
           <div className="relative pb-6 flex-grow">
-            {getTagTypeAndStyle(product.tag)}
+            {getTagTypeAndStyle(product.tagId)}
 
             <img
               className="w-1/2 object-cover mx-auto pt-6 "

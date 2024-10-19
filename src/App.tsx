@@ -20,7 +20,7 @@ function App() {
   const [cartProducts, setCartProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch('/data/tags.json')
+    fetch('https://omazon-server.onrender.com/tags')
       .then((response) => {
         return response.json();
       })
@@ -34,7 +34,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/data/categories.json')
+    fetch('https://omazon-server.onrender.com/categories')
       .then((response) => {
         return response.json();
       })

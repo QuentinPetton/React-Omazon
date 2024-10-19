@@ -17,7 +17,7 @@ function HeaderForm({ items, products }: CategoriesListProps) {
   // console.log(searchCategory);
   //todo lier les deux finds pour afficher contenu
   const finProductByCategoriesAndTitle = findProductByTitle.filter((product) =>
-    product.category.title.toLowerCase().includes(searchCategory.toLowerCase()),
+    product.categoryId.toLowerCase().includes(searchCategory.toLowerCase()),
   );
 
   return (
