@@ -62,10 +62,10 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
-  const titleHead = 'coucou';
+  const titleHead = `Omazon (panier ${cartProducts.length} produit)`;
   useEffect(() => {
     document.title = titleHead;
-  }, []);
+  }, [addProductToCart]);
 
   function addProductToCart(product: Product) {
     //todo vérifier si produit pas déjà dans panier
