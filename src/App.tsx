@@ -49,7 +49,7 @@ function App() {
 
   //On récupère les données de data/products
   useEffect(() => {
-    fetch('/data/products.json')
+    fetch('https://omazon-server.onrender.com/products')
       .then((response) => {
         return response.json();
       })

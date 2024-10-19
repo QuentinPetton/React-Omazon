@@ -3,10 +3,10 @@ export interface Product {
   title: string;
   price: number;
   image: string;
-  category: Category;
-  tag: Tag;
+  description: string;
+  categoryId: number;
+  tagId: number;
 }
-
 export interface Category {
   id: number;
   title: string;

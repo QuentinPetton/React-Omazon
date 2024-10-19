@@ -41,9 +41,10 @@ function ProductAddForm({
       id: products.length + 1,
       title: `${data.titre}`,
       price: Number(`${data.price}`),
+      description: `${data.description}`,
       image: `${data.url}`,
-      category: categorySelected as Category,
-      tag: tagSelected as Tag,
+      categoryId: categorySelected.id,
+      tagId: tagSelected.id,
     };
     console.log(newProduct);
 
@@ -105,6 +106,16 @@ function ProductAddForm({
                   className="border border-Brand_grey rounded-sm px-2 py-1"
                   type="text"
                   name="price"
+                />
+              </div>
+
+              <div className="col-span-2 flex flex-col px-6">
+                <label htmlFor="description">Description</label>
+                <textarea
+                  className="border border-Brand_grey rounded-sm px-2 py-1"
+                  name="description"
+                  rows={4}
+                  required
                 />
               </div>
 
