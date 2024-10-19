@@ -42,7 +42,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
 
   return (
     <header
-      className={`bg-Main_high text-Main_Lowest p-4 sticky top-0 ${shadowScrollHeader ? 'text-cyan-900 w-11' : ''}`}
+      className={`bg-Main_high text-Main_Lowest p-4 sticky top-0 z-10 ${shadowScrollHeader ? ' shadow-[0px_2px_10px_0px_rgba(0,0,0,0.5)]' : ''}`}
     >
       <div className="flex justify-between items-center">
         <HeaderLogo />
