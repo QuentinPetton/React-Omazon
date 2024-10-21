@@ -44,7 +44,7 @@ function HeaderForm({ items, products }: CategoriesListProps) {
             </option>
           ))}
         </select>
-        <div className="relative w-full">
+        <div className="relative flex-grow">
           <input
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}

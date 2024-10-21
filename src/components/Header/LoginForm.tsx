@@ -13,12 +13,11 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
   useEffect(() => {
     if (emailInputRef.current && displayLoginForm) {
       emailInputRef.current.focus();
-      console.log(emailInputRef);
     }
   }, [displayLoginForm]);
 
   return (
-    <div className="absolute z-10 right-6">
+    <div className="absolute z-10 right-6 top-16">
       {displayLoginForm && (
         <form
           action=""
