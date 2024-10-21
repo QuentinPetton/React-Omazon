@@ -1,13 +1,21 @@
-import type { RefObject } from 'react';
+import { useEffect, type RefObject } from 'react';
 
 //todo focus sur input email
 
 type LoginFormProps = {
   displayLoginForm: boolean;
-  inputRef: RefObject<HTMLInputElement>;
+  emailInputRef: RefObject<HTMLInputElement>;
 };
 
-function LoginForm({ displayLoginForm, inputRef }: LoginFormProps) {
+function LoginForm({ displayLoginForm, emailInputRef }: LoginFormProps) {
+  //Gestion du focus sur input email
+
+  useEffect(() => {
+    if (emailInputRef.current && displayLoginForm) {
+      emailInputRef.current.focus();
+    }
+  }, [emailInputRef, displayLoginForm]);
+
   return (
     <div>
       {displayLoginForm && (
@@ -19,8 +27,8 @@ function LoginForm({ displayLoginForm, inputRef }: LoginFormProps) {
           <div>
             <label htmlFor="email">Adresse e-mail</label>
             <input
-              ref={inputRef}
-              type="text"
+              ref={emailInputRef}
+              type="email"
               name="email"
               className="border border-Brand_grey rounded-sm px-2 py-1"
             />
@@ -29,7 +37,7 @@ function LoginForm({ displayLoginForm, inputRef }: LoginFormProps) {
           <div>
             <label htmlFor="password">Mot de passe</label>
             <input
-              type="text"
+              type="password"
               name="password"
               className="border border-Brand_grey rounded-sm px-2 py-1"
             />
