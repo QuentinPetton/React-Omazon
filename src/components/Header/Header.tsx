@@ -50,7 +50,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
       <div className="mt-4">
         <HeaderForm items={items} products={products} />
       </div>
-      <LoginForm />
+      <LoginForm displayLoginForm={displayLoginForm} />
     </header>
   );
 }
