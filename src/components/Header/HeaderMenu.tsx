@@ -23,11 +23,12 @@ function HeaderMenu({
         <div>
           <button
             type="button"
-            className="flex
-          "
+            className="flex"
             onClick={displayLoginFormModal}
           >
-            <span className="font-bold text-lg">Comptes et listes </span>
+            <span className="font-bold text-lg text-left">
+              Comptes et listes{' '}
+            </span>
             <img src="/icons/caret-down.svg" alt="account and list icon" />
           </button>
         </div>
