@@ -3,7 +3,7 @@ import HeaderForm from './HeaderForm';
 import HeaderMenu from './HeaderMenu';
 import LoginForm from './LoginForm';
 import type { Category, Product } from '../../assets/@types';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 type HeaderProps = {
   items: Category[];
@@ -35,8 +35,6 @@ function Header({ items, cartProducts, products }: HeaderProps) {
     setDisplayLoginForm(!displayLoginForm);
   }
 
-  const emailInputRef = useRef<HTMLInputElement | null>(null);
-
   return (
     <header
       className={`bg-Main_high text-Main_Lowest p-4 sticky top-0 z-10 ${shadowScrollHeader ? ' shadow-[0px_2px_10px_0px_rgba(0,0,0,0.5)]' : ''}`}
@@ -51,10 +49,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
       <div className="mt-4">
         <HeaderForm items={items} products={products} />
       </div>
-      <LoginForm
-        displayLoginForm={displayLoginForm}
-        emailInputRef={emailInputRef}
-      />
+      <LoginForm displayLoginForm={displayLoginForm} />
     </header>
   );
 }
