@@ -1,12 +1,13 @@
-//todo mise en page et style composant
-//todo affichage conditionnel au clic => useState + onClick
+import type { RefObject } from 'react';
+
 //todo focus sur input email
 
 type LoginFormProps = {
   displayLoginForm: boolean;
+  inputRef: RefObject<HTMLInputElement>;
 };
 
-function LoginForm({ displayLoginForm }: LoginFormProps) {
+function LoginForm({ displayLoginForm, inputRef }: LoginFormProps) {
   return (
     <div>
       {displayLoginForm && (
@@ -18,6 +19,7 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
           <div>
             <label htmlFor="email">Adresse e-mail</label>
             <input
+              ref={inputRef}
               type="text"
               name="email"
               className="border border-Brand_grey rounded-sm px-2 py-1"

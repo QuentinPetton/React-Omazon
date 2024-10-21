@@ -3,7 +3,7 @@ import HeaderForm from './HeaderForm';
 import HeaderMenu from './HeaderMenu';
 import LoginForm from './LoginForm';
 import type { Category, Product } from '../../assets/@types';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 type HeaderProps = {
   items: Category[];
@@ -33,8 +33,9 @@ function Header({ items, cartProducts, products }: HeaderProps) {
 
   function displayLoginFormModal() {
     setDisplayLoginForm(!displayLoginForm);
-    console.log(displayLoginForm);
   }
+
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   return (
     <header
@@ -50,7 +51,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
       <div className="mt-4">
         <HeaderForm items={items} products={products} />
       </div>
-      <LoginForm displayLoginForm={displayLoginForm} />
+      <LoginForm displayLoginForm={displayLoginForm} inputRef={inputRef} />
     </header>
   );
 }
