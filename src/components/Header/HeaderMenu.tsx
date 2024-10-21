@@ -11,11 +11,13 @@ function HeaderMenu({
 }: CartProductsProps) {
   return (
     <div className="flex items-center gap-4">
-      <img
-        className="h-7 md:hidden lg:hidden"
-        src="/icons/user.svg"
-        alt="User account icon"
-      />
+      <button type="button" onClick={displayLoginFormModal}>
+        <img
+          className="h-7 md:hidden lg:hidden"
+          src="/icons/user.svg"
+          alt="User account icon"
+        />
+      </button>
       <div className="hidden md:flex md:flex-col">
         <span>Bonjour, identifiez-vous</span>
         <div>
