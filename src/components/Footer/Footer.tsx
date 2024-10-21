@@ -1,12 +1,11 @@
-import type { Category, Product } from '../../assets/@types';
+import type { Category } from '../../assets/@types';
 
 type FooterProps = {
   categories: Category[];
-  products: Product[];
   displayModalAddForm: () => void;
 };
 
-function Footer({ categories, products, displayModalAddForm }: FooterProps) {
+function Footer({ categories, displayModalAddForm }: FooterProps) {
   return (
     <div>
       <div className=" hidden md:flex lg:flex justify-between items-center bg-Main_high text-Main_Lowest p-4 gap-8">

@@ -14,7 +14,6 @@ function HeaderForm({ items, products }: CategoriesListProps) {
   );
 
   const [searchCategory, setsearchCategory] = useState('');
-  console.log(searchCategory);
 
   // const finProductByCategoriesAndTitle = findProductByTitle.filter((product) =>
   //   product.categoryId.toLowerCase().includes(searchCategory.toLowerCase()),

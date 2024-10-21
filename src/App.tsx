@@ -106,7 +106,6 @@ function App() {
       />
       <Footer
         categories={categories}
-        products={products}
         displayModalAddForm={displayModalAddForm}
       />
     </div>
