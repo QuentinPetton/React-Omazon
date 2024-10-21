@@ -14,10 +14,11 @@ type HeaderProps = {
 function Header({ items, cartProducts, products }: HeaderProps) {
   const [shadowScrollHeader, setShadowScrollHeader] = useState(false);
   const [olderScrollPosition, setOlderScrollPosition] = useState(0);
+  const [displayLoginForm, setDisplayLoginForm] = useState(false);
 
+  //Gestion de l'ombre au scroll
   const handleScroll = useCallback(() => {
     const currentScrollY = window.scrollY;
-
     if (currentScrollY > olderScrollPosition) {
       setShadowScrollHeader(true);
     } else if (currentScrollY < olderScrollPosition) {
@@ -29,6 +30,10 @@ function Header({ items, cartProducts, products }: HeaderProps) {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
   }, [handleScroll]);
+
+  function displayLoginFormModal() {
+    setDisplayLoginForm(!displayLoginForm);
+  }
 
   return (
     <header

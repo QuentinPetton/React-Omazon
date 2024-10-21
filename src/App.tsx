@@ -9,7 +9,6 @@ import type { Category, Product, Tag } from './assets/@types';
 
 function App() {
   const [categories, setCategories] = useState<Category[]>([]);
-  //Gérer affichage du nmbre article dans panier
   const [products, setProducts] = useState<Product[]>([]);
   const [tags, setTags] = useState<Tag[]>([]);
 
@@ -62,6 +61,7 @@ function App() {
       .catch((error) => console.error(error));
   }, []);
 
+  //Gestion affichage dans titre onglet head
   useEffect(() => {
     if (cartProducts.length <= 1) {
       document.title = `Omazon (panier ${cartProducts.length} produit)`;
