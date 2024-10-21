@@ -18,14 +18,14 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
   }, [displayLoginForm]);
 
   return (
-    <div>
+    <div className="absolute z-10">
       {displayLoginForm && (
         <form
           action=""
           className="flex
-       flex-col"
+       flex-col drop-shadow-md text-black bg-Main_Lowest py-8 px-16 gap-4 rounded-lg"
         >
-          <div>
+          <div className="flex flex-col gap-2">
             <label htmlFor="email">Adresse e-mail</label>
             <input
               ref={emailInputRef}
@@ -35,7 +35,7 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
             />
           </div>
 
-          <div>
+          <div className="flex flex-col gap-2">
             <label htmlFor="password">Mot de passe</label>
             <input
               type="password"
@@ -45,7 +45,7 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
           </div>
 
           <button
-            className="bg-Button_primary_default_bg border-Button_primary_default_border col-span-2 p-2 rounded-lg mt-2 mx-4 mb-8"
+            className="bg-Button_primary_default_bg border-Button_primary_default_border col-span-2 p-2 rounded-lg mx-8 mt-4 font-bold"
             type="submit"
           >
             Identifiez-vous
