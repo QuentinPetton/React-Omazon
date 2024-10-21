@@ -1,6 +1,7 @@
 import HeaderLogo from './HeaderLogo';
 import HeaderForm from './HeaderForm';
 import HeaderMenu from './HeaderMenu';
+import LoginForm from './LoginForm';
 import type { Category, Product } from '../../assets/@types';
 import { useCallback, useEffect, useState } from 'react';
 
@@ -40,6 +41,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
       <div className="mt-4">
         <HeaderForm items={items} products={products} />
       </div>
+      <LoginForm />
     </header>
   );
 }
