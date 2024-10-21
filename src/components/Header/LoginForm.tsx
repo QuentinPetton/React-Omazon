@@ -17,7 +17,7 @@ function LoginForm({ displayLoginForm }: LoginFormProps) {
   }, [displayLoginForm]);
 
   return (
-    <div className="absolute z-10 right-6 top-16">
+    <div className="absolute z-10 w-full top-40 md:w-auto md:right-6 md:top-20">
       {displayLoginForm && (
         <form
           action=""
