@@ -33,6 +33,7 @@ function Header({ items, cartProducts, products }: HeaderProps) {
 
   function displayLoginFormModal() {
     setDisplayLoginForm(!displayLoginForm);
+    console.log(displayLoginForm);
   }
 
   return (
@@ -41,7 +42,10 @@ function Header({ items, cartProducts, products }: HeaderProps) {
     >
       <div className="flex justify-between items-center">
         <HeaderLogo />
-        <HeaderMenu cartProducts={cartProducts} />
+        <HeaderMenu
+          cartProducts={cartProducts}
+          displayLoginFormModal={displayLoginFormModal}
+        />
       </div>
       <div className="mt-4">
         <HeaderForm items={items} products={products} />

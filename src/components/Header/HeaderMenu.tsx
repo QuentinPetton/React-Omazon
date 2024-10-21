@@ -2,9 +2,13 @@ import type { Product } from '../../assets/@types';
 
 type CartProductsProps = {
   cartProducts: Product[];
+  displayLoginFormModal: () => void;
 };
 
-function HeaderMenu({ cartProducts }: CartProductsProps) {
+function HeaderMenu({
+  cartProducts,
+  displayLoginFormModal,
+}: CartProductsProps) {
   return (
     <div className="flex items-center gap-4">
       <img
@@ -14,12 +18,16 @@ function HeaderMenu({ cartProducts }: CartProductsProps) {
       />
       <div className="hidden md:flex md:flex-col">
         <span>Bonjour, identifiez-vous</span>
-        <div
-          className="flex justify-center
-        "
-        >
-          <span className="font-bold text-lg">Comptes et listes </span>
-          <img src="/icons/caret-down.svg" alt="account and list icon" />
+        <div>
+          <button
+            type="button"
+            className="flex
+          "
+            onClick={displayLoginFormModal}
+          >
+            <span className="font-bold text-lg">Comptes et listes </span>
+            <img src="/icons/caret-down.svg" alt="account and list icon" />
+          </button>
         </div>
       </div>
       <div className="relative">
