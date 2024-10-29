@@ -1,8 +1,9 @@
 import './styles/reset.css';
 import './styles/global.css';
 
+import { Outlet } from 'react-router-dom';
+
 import Header from './components/Header/Header';
-import HomePage from './components/HomePage/HomePage';
 import Footer from './components/Footer/Footer';
 import { useEffect, useState } from 'react';
 import type { Category, Product, Tag } from './assets/@types';
@@ -95,14 +96,16 @@ function App() {
         cartProducts={cartProducts}
         products={products}
       />
-      <HomePage
-        categories={categories}
-        tags={tags}
-        products={products}
-        addProductToCart={addProductToCart}
-        displayModal={displayModal}
-        addRental={addRental}
-        displayModalAddForm={displayModalAddForm}
+      <Outlet
+        context={{
+          categories,
+          tags,
+          products,
+          addProductToCart,
+          displayModal,
+          addRental,
+          displayModalAddForm,
+        }}
       />
       <Footer
         categories={categories}

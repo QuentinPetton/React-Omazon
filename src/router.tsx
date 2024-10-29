@@ -1,16 +1,16 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
+import HomePage from './components/HomePage/HomePage';
 
 const router = createBrowserRouter([
-  // Je définis une route sur l'url `/` qui affiche le composant `<Home />`
+  // Je définis une route sur l'url `/` qui affiche le composant `<HomePage />`
   {
     path: '/',
-    // element: <Home />,
     element: <App />,
     children: [
       {
         path: '/',
-        element: <Home />, // Page Home
+        element: <HomePage />,
       },
     ],
   },

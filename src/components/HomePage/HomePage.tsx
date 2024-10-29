@@ -1,26 +1,29 @@
 import Categories from './Categories';
 import Products from './Products';
+import { useOutletContext } from 'react-router-dom';
+
 import type { Category, Product, Tag } from '../../assets/@types';
 
-type HomePageProps = {
+type HomePageContext = {
   categories: Category[];
-  products: Product[];
   tags: Tag[];
+  products: Product[];
   addProductToCart: (product: Product) => void;
   displayModal: boolean;
-  addRental: (newproduct: Product) => void;
+  addRental: (newProduct: Product) => void;
   displayModalAddForm: () => void;
 };
 
-function HomePage({
-  categories,
-  products,
-  tags,
-  addProductToCart,
-  displayModal,
-  addRental,
-  displayModalAddForm,
-}: HomePageProps) {
+function HomePage() {
+  const {
+    categories,
+    tags,
+    products,
+    addProductToCart,
+    displayModal,
+    addRental,
+    displayModalAddForm,
+  } = useOutletContext<HomePageContext>();
   return (
     <main>
       <Categories categories={categories} />
